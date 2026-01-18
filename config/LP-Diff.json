@@ -1,6 +1,6 @@
 {
     "name": "LP-Diff",
-    "phase": "train", // train or val
+    "dataset_path": "data/icpr_train", // train or val
     "gpu_ids": [
         0
     ],
@@ -16,7 +16,7 @@
         "train": {
             "name": "MDLP",
             "mode": "LRHR",
-            "dataroot": "H:/ICPR2026/LP-Diff/data",
+            "dataroot": "H:/ICPR2026/LP-Diff-UTEAI/data/icpr_train",
             "width": 224,
             "height": 112,
             "batch_size": 20,
@@ -27,7 +27,7 @@
             "mode": "LRHR",
             "width": 224,
             "height": 112,
-            "dataroot": "H:/ICPR2026/LP-Diff/data"
+            "dataroot": "H:/ICPR2026/LP-Diff-UTEAI/data/icpr_train"
         }
     },
     "model": {
