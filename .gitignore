@@ -1,0 +1,32 @@
+# ==== ENV / SECRET ====
+.env
+.env.*
+*.env
+
+# ==== PYTHON ====
+__pycache__/
+*.pyc
+*.pyo
+
+# ==== ML / DL ====
+*.pth
+*.pt
+*.ckpt
+checkpoints/
+logs/
+wandb/
+runs/
+
+# ==== DATA ====
+data/
+datasets/
+ICPR_dataset/
+experiments/
+*.npy
+*.npz
+
+# ==== IDE ====
+.vscode/
+.idea/
+results.zip 
+results.zip 
