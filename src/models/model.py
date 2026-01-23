@@ -87,7 +87,7 @@ class ResTranOCR(nn.Module):
             x_aligned = F.grid_sample(x_flat, grid, align_corners=False)
         else:
             x_aligned = x_flat
-        x_aligned = self.upsampler(x_aligned)  # Upsample input frames
+        # x_aligned = self.upsampler(x_aligned)  # Upsample input frames
 
         features = self.backbone(x_aligned)  # [B*F, 512, 1, W']
         fused = self.fusion(features, self.num_frames)     # [B, 512, 1, W']
