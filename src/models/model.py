@@ -1,7 +1,9 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from src.models import ResNetFeatureExtractor, AttentionFusion, PositionalEncoding, STNBlock, CTCHead
+from src.models.heads import CTCHead
+from src.models.backbones import ResNetFeatureExtractor
+from src.models.necks import STNBlock, AttentionFusion, PositionalEncoding
 
 
 class ResTranOCR(nn.Module):
@@ -86,7 +88,7 @@ class ResTranOCR(nn.Module):
         else:
             x_aligned = x_flat
         x_aligned = self.upsampler(x_aligned)  # Upsample input frames
-        
+
         features = self.backbone(x_aligned)  # [B*F, 512, 1, W']
         fused = self.fusion(features, self.num_frames)     # [B, 512, 1, W']
         
