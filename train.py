@@ -195,11 +195,15 @@ def load_checkpoint(checkpoint_path, model, config, load_training_state=False):
     
     # Load model weights
     if 'model_state_dict' in checkpoint:
-        model.load_state_dict(checkpoint['model_state_dict'])
+        msg = model.load_state_dict(checkpoint['model_state_dict'], strict=False)
     else:
-        model.load_state_dict(checkpoint)
+        msg = model.load_state_dict(checkpoint, strict=False)
     
     print("   ✅ Model weights loaded")
+    if len(msg.missing_keys) > 0:
+        print(f"   ⚠️  Missing keys in state_dict: {msg.missing_keys}")
+    if len(msg.unexpected_keys) > 0:
+        print(f"   ⚠️  Unexpected keys in state_dict: {msg.unexpected_keys}")
     
     # Return training state if needed
     if load_training_state and 'epoch' in checkpoint:
