@@ -1,0 +1,20 @@
+d:\ICPR2026\LP-Diff-UTEAI\combined_eval.py
+d:\ICPR2026\LP-Diff-UTEAI\config\LP-Diff-OCR.json
+d:\ICPR2026\LP-Diff-UTEAI\core\logger.py
+d:\ICPR2026\LP-Diff-UTEAI\core\metrics.py
+d:\ICPR2026\LP-Diff-UTEAI\core\wandb_logger.py
+d:\ICPR2026\LP-Diff-UTEAI\model\__init__.py
+d:\ICPR2026\LP-Diff-UTEAI\model\base_model.py
+d:\ICPR2026\LP-Diff-UTEAI\model\model.py
+d:\ICPR2026\LP-Diff-UTEAI\model\networks.py
+d:\ICPR2026\LP-Diff-UTEAI\model\LPDiff_modules\__init__.py
+d:\ICPR2026\LP-Diff-UTEAI\model\LPDiff_modules\diffusion.py
+d:\ICPR2026\LP-Diff-UTEAI\model\LPDiff_modules\unet.py
+d:\ICPR2026\LP-Diff-UTEAI\model\LPDiff_modules\ocr_loss.py
+d:\ICPR2026\OCR\src\models\__init__.py
+d:\ICPR2026\OCR\src\models\model.py
+d:\ICPR2026\OCR\src\models\heads.py
+d:\ICPR2026\OCR\src\models\backbones.py
+d:\ICPR2026\OCR\src\models\necks.py
+d:\ICPR2026\OCR\results\v1_3frame.pth
+# Plus the LP-Diff checkpoint (e.g. ckpt/I700000_E1426_gen.pth)

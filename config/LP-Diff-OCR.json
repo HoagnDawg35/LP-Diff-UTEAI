@@ -1,0 +1,86 @@
+{
+    "name": "LP-Diff-OCR",
+    "dataset_path": "data/icpr_train",
+    "gpu_ids": [0],
+    "path": {
+        "log": "logs",
+        "tb_logger": "tb_logger",
+        "results": "results",
+        "checkpoint": "checkpoint",
+        "resume_state": null
+    },
+    "datasets": {
+        "train": {
+            "name": "MDLP",
+            "mode": "LRHR",
+            "dataroot": "d:/ICPR2026/LP-Diff-UTEAI/data/icpr_train",
+            "width": 224,
+            "height": 112,
+            "batch_size": 16,
+            "num_workers": 4
+        },
+        "val": {
+            "name": "MDLP",
+            "mode": "LRHR",
+            "dataroot": "d:/ICPR2026/LP-Diff-UTEAI/data/val",
+            "width": 224,
+            "height": 112
+        }
+    },
+    "model": {
+        "finetune_norm": false,
+        "unet": {
+            "in_channel": 6,
+            "out_channel": 3,
+            "inner_channel": 64,
+            "channel_multiplier": [1, 2, 4, 8, 8],
+            "attn_res": [16],
+            "res_blocks": 2,
+            "dropout": 0.1
+        },
+        "beta_schedule": {
+            "train": {
+                "schedule": "linear",
+                "n_timestep": 1000,
+                "linear_start": 1e-6,
+                "linear_end": 1e-2
+            },
+            "val": {
+                "schedule": "linear",
+                "n_timestep": 1000,
+                "linear_start": 1e-6,
+                "linear_end": 1e-2
+            }
+        },
+        "diffusion": {
+            "image_size": 128,
+            "channels": 3,
+            "conditional": true
+        }
+    },
+    "train": {
+        "use_prerain_MTA": false,
+        "resume_training": false,
+        "n_iter": 800000,
+        "val_freq": 2000,
+        "save_checkpoint_freq": 5000,
+        "print_freq": 100,
+        "optimizer": {
+            "type": "adam",
+            "lr": 1e-4
+        },
+        "ocr_opt": {
+            "use_ocr_loss": true,
+            "ocr_loss_weight": 0.01,
+            "ocr_ckpt_path": "d:/ICPR2026/OCR/results/v1_3frame.pth"
+        },
+        "ema_scheduler": {
+            "step_start_ema": 5000,
+            "update_ema_every": 1,
+            "ema_decay": 0.9999
+        }
+    },
+    "wandb": {
+        "project": "LP-Diff-OCR"
+    }
+}
